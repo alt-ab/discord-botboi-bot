@@ -8,9 +8,9 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-    if (msg.content === 'ping') {
-      msg.reply('pong');
-    }
-  });
-  
+  if (msg.content === 'ping') {
+    msg.reply('pong');
+  }
+});
+
 client.login(process.env.DISCORD_TOKEN);
