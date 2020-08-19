@@ -7,6 +7,11 @@ client.on('ready', () => {
     console.log(`Blast off! Logged in as ${client.user.tag}!`);
 });
 
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`App is running on port ${ PORT }`);
+});
+
 client.on('message', msg => {
   if (msg.content === 'ping') {
     msg.reply('pong');
