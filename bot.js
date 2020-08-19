@@ -14,5 +14,3 @@ client.on('message', msg => {
 });
 
 client.login(process.env.DISCORD_TOKEN);
-
-//wow dumm
