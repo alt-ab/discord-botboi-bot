@@ -9,7 +9,7 @@ client.on('ready', () => {
 
 const PORT = process.env.PORT || 3000;
 
-bot.listen(PORT, () => {
+client.listen(PORT, () => {
     console.log(`App is running on port ${ PORT }`);
 });
 
