@@ -9,8 +9,10 @@ var GphApiClient = require('giphy-js-sdk-core');
 const GIPHY_TOKEN = process.env.GIPHY_TOKEN;
 giphy = GphApiClient(GIPHY_TOKEN);
 
-//set up
+//other set up
 const PORT = process.env.PORT || 3000;
+const prefix = process.env.prefix;
+const memefix = process.env.memefix;
 
 client.on(PORT, () => {
     console.log(`App is running on port ${ PORT }`);
