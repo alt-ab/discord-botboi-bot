@@ -70,6 +70,22 @@ client.on('message', message => {
       message.channel.send(":ping_pong: pong!")
   }
 
+  if (message.content.startsWith(`${prefix}jen harem`)) {
+
+    giphy.search('gifs', {"q":kpop})
+    .then((response) => {
+        var totalResponses = response.data.length;
+        var responseIndex = Math.floor((Math.random() * 10) + 1) % totalResponses;
+        var responseFinal = response.data[responseIndex];
+
+        message.channel.send({
+            files: [responseFinal.images.fixed.fixed_height.url]
+        })
+    }).catch(() => {
+        message.channel.send('Wrong sorry');
+    })
+ }
+
   if (message.content.startsWith(`${memefix}`)) {
 
       giphy.search('gifs', {"q":message.content})
@@ -84,22 +100,6 @@ client.on('message', message => {
       }).catch(() => {
           message.channel.send('Error sorry');
       })
-  }
-
-  if (message.content.startsWith(`jen harem`)) {
-
-     giphy.search('gifs', {"q":kpop})
-     .then((response) => {
-         var totalResponses = response.data.length;
-         var responseIndex = Math.floor((Math.random() * 10) + 1) % totalResponses;
-         var responseFinal = response.data[responseIndex];
-
-         message.channel.send({
-             files: [responseFinal.images.fixed.fixed_height.url]
-         })
-     }).catch(() => {
-         message.channel.send('Wrong sorry');
-     })
   }
 
   if (message.content.includes(`${prefix}echo`)) {
