@@ -25,7 +25,7 @@ client.on('ready', () => {
 
 client.on('message', message => {
 
-  if (message.member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS'])) {
+  if (message.member.hasPermission(['KICK_MEMBERS'])) {
 
       if(message.content.startsWith(`${prefix}kick`)) {
           //message.channel.send("Kick")
