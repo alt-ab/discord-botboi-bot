@@ -23,10 +23,73 @@ client.on('ready', () => {
   console.log(`Blast off! Logged in as ${client.user.tag}!`);
 });
 
-client.on('message', msg => {
-  if (msg.content === 'ping') {
-    msg.reply('pong');
+client.on('message', message => {
+
+  if (message.member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS'])) {
+
+      if(message.content.startsWith(`${prefix}kick`)) {
+          //message.channel.send("Kick")
+
+          let member = message.mentions.members.first();
+          member.kick().then((member) => {
+
+              giphy.search('gifs',{"q": "fail"})
+                  .then((response) => {
+                      var totalResponses = response.data.length;
+                      var responseIndex = Math.floor((Math.random() * 10) + 1) % totalResponses;
+                      var responseFinal = response.data[responseIndex];
+                      //* code^^ for randomizing
+                      message.channel.send(":wave: " + member.displayName + " is a dropout!!", {
+                          files: [responseFinal.images.fixed_height.url]
+                      })
+                  }).catch(() => {
+                      message.channel.send('Error sorry');
+                  })
+
+  
+          })
+      
+      }
+          
   }
+
+//commands for general people 
+  if (message.content.startsWith(`${prefix}help`)) {
+      message.channel.send(":robot:  **I do many fun things but I only one bot** ask me 'why' or 'commands'. State = in construction... ~~idk ask my mom~~")
+  }
+  if (message.content.startsWith(`${prefix}commands`)) {
+      message.channel.send("I do 'ping', 'echo', 'botboimeme', 'kick' (for admins only of course)." + " Just use my prefix 'botboi' for all of them except the memes, instead say 'botboimeme'  :robot:")
+  }
+  if (message.content.startsWith(`${prefix}why`)) {
+      message.channel.send("***why we exist? Because #yolo that's why***")
+  }
+  //, {
+  //    files: [C:\Users\ab420\Desktop\python and code\discord-botboi-bot\R2-D2-512.png]
+  //}
+  if (message.content.startsWith(`${prefix}ping`)) {
+      message.channel.send(":ping_pong: pong!")
+  }
+
+  if (message.content.startsWith(`${memefix}`)) {
+
+      giphy.search('gifs', {"q":message.content})
+      .then((response) => {
+          var totalResponses = response.data.length;
+          var responseIndex = Math.floor((Math.random() * 10) + 1) % totalResponses;
+          var responseFinal = response.data[responseIndex];
+
+          message.channel.send({
+              files: [responseFinal.images.fixed_height.url]
+          })
+      }).catch(() => {
+          message.channel.send('Error sorry');
+      })
+  }
+
+  if (message.content.includes(`${prefix}echo`)) {
+      message.channel.send(message.content.replace('botboi echo', ':microphone:'))
+  }
+  
 });
 
 
