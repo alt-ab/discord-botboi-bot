@@ -72,14 +72,10 @@ client.on('message', message => {
 
   if (message.content.startsWith(`${prefix}jen harem`)) {
 
-    giphy.search('gifs', {"q":'kpop'})
+    giphy.search('gifs', {"q":"kpop"})
     .then((response) => {
-        var totalResponses = response.data.length;
-        var responseIndex = Math.floor((Math.random() * 10) + 1) % totalResponses;
-        var responseFinal = response.data[responseIndex];
-
-        message.channel.send({
-            files: [responseFinal.images.fixed.fixed_height.url]
+        response.data.forEach((gifObject) => {
+            message.channel.send(gifObject)
         })
     }).catch(() => {
         message.channel.send('Wrong sorry');
