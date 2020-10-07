@@ -75,7 +75,7 @@ client.on('message', message => {
       message.channel.send(":ping_pong: pong!")
   }
 
-  if (message.content.startsWith(`${prefix}jen harem`)) {
+  if (message.content.startsWith(`${prefix}kpop`)) {
 
     giphy.search('gifs', {"q":"kpop"})
     .then((response) => {
@@ -86,8 +86,7 @@ client.on('message', message => {
         message.channel.send({
             files: [responseFinal.image.fixed_height.url]
         })
-    })
-    .catch(() => {
+    }).catch(() => {
         message.channel.send('Wrong sorry');
     })
  }
