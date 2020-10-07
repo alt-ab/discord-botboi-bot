@@ -55,12 +55,10 @@ client.on('message', message => {
 
 //commands for general people 
 
-  if (message.contect.startsWith(`${prefix}h`)) {
+  if (message.content.startsWith(`${prefix}h`)) {
       message.channel.send("yes?")
   }
-  }).catch(() => {
-    message.channel.send('nice');
-  })
+
   if (message.content.startsWith(`${prefix}help`)) {
       message.channel.send(":robot:  **I do many fun things but I only one bot** ask me 'why' or 'commands'. State = in construction... ~~idk ask my mom~~")
   }
@@ -84,7 +82,8 @@ client.on('message', message => {
         response.data.forEach((gifObject) => {
             message.channel.send(gifObject)
         })
-    }).catch(() => {
+    })
+    .catch(() => {
         message.channel.send('Wrong sorry');
     })
  }
