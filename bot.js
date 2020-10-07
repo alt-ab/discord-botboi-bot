@@ -55,10 +55,11 @@ client.on('message', message => {
 
 //commands for general people 
 
-  if (message.contect.startsWitch(`${prefix}h`)) {
+  if (message.contect.startsWith(`${prefix}h`)) {
       message.channel.send("yes?")
   }
-
+  }).catch(() => {
+    message.channel.send('nice');
   if (message.content.startsWith(`${prefix}help`)) {
       message.channel.send(":robot:  **I do many fun things but I only one bot** ask me 'why' or 'commands'. State = in construction... ~~idk ask my mom~~")
   }
