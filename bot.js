@@ -79,7 +79,7 @@ client.on('message', message => {
 
     giphy.search('gifs', {"q":"kpop"})
     .then((response) => {
-        var totalResponse = response.data.length;
+        var totalResponses = response.data.length;
         var responseIndex = Math.floor((Math.random() * 10) + 1) % totalResponses;
         var responseFinal = response.data[responseIndex];
 
