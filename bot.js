@@ -125,7 +125,11 @@ client.on('message', message => {
         })
   }
 
-});
+  if (message.content.startsWith (`${prefix}hint`)) {
+      if(message.member.roles.find(x => x.name === "riddler")) {
+            message.channel.send('hi im blank')
+  }
+};
 
 
 //bottom
@@ -133,3 +137,18 @@ client.login(process.env.DISCORD_TOKEN);
 // -p $PORT for Procfile
 // and because I'm lazy 
 // Git add .; Git commit -m "commit message"
+
+//*if(message.member.roles.has(role.id)) {
+    // user has that role
+  //} else {
+    //user doesn't have that role
+  //}
+
+  //if (command === "commandname"){
+   // let allowedRole = message.guild.roles.find("name", "rolename");
+   // if (message.member.roles.has(allowedRole.id) {
+        // allowed access to command
+   // } else {
+       // not allowed access
+   // }
+//}
