@@ -99,7 +99,7 @@ client.on('message', message => {
       message.channel.send(message.content.replace('botboi echo', ':microphone:'))
   }
 
-  if (message.content.startsWith(`${prefix}kpop`)) {
+  if (message.content.startsWith(`${prefix}kpop`) || message.content.startsWith(`${prefix}jen`)) {
 
     giphy.search('gifs', {"q":"kpop"})
     .then((response) => {
