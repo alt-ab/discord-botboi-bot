@@ -26,7 +26,7 @@ client.on('ready', () => {
 
 client.on('message', message => {
   if (message.member.hasPermission('KICK_MEMBERS')) {
-      console.log('This member can kick');
+     // console.log('This member can kick');
       
       if(message.content.startsWith(`${prefix}kick`)) {
           //message.channel.send("Kick")
@@ -79,7 +79,7 @@ client.on('message', message => {
       message.channel.send(":ping_pong: pong!")
   }
 
-  if (message.content.includes('1-1') || message.content.includes('2=2')) {
+  if (message.content.includes('1=1') || message.content.includes('2=2')) {
       console.log(`it's true`)
   }
   if (message.content.startsWith(`${memefix}`)) {
