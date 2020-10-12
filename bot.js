@@ -102,7 +102,7 @@ client.on('message', message => {
       message.channel.send(message.content.replace('botboi echo', ':microphone:'))
   }
 
-  if (message.content.startsWith(`${memefix}kpop`)) {
+  if (message.content.startsWith(`${memefix}kpop`) || message.content.includes('botboi jen')) {
 
     giphy.search('gifs', {"q":"kpop"})
     .then((response) => {
@@ -114,7 +114,7 @@ client.on('message', message => {
             files: [responseFinal.image.fixed_height.url]
         })
     }).catch(() => {
-        message.channel.send('Wrong sorry');
+        message.channel.send('One sec');
     })
  }
 //Riddle me this!
