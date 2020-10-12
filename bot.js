@@ -79,7 +79,7 @@ client.on('message', message => {
       message.channel.send(":ping_pong: pong!")
   }
 
-  if (message.content.includes("1") || message.content.includes("2")) {
+  if (message.content.includes('1-1') || message.content.includes(`2=2`)) {
       console.log(`it's true`)
   }
   if (message.content.startsWith(`${memefix}`)) {
