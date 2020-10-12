@@ -59,6 +59,9 @@ client.on('message', message => {
   if (message.content.startsWith(`${prefix}h`)) {
       message.channel.send("yes?")
   }
+  if (message.content.includes (`dm me`)) {
+    message.author.send(`Yessir!`);
+  }
 
   if (message.content.startsWith(`${prefix}help`)) {
       message.channel.send(":robot:  **I do many fun things but I only one bot** ask me 'why' or 'commands'. State = in construction... ~~idk ask my mom~~")
@@ -115,17 +118,14 @@ client.on('message', message => {
   //if (msg.content === `"Your message!"`) {
   //  msg.channel.type === (`"dm"`) + msg.author.sendMessage(`"Your other message"`);
   //}
-  if (message.content.includes (`dm me`)) {
-      message.author.send(`Yessir!`);
-  }
-
+ 
   if (message.content.includes (`${riddlefix}hi im dad`)) {
         message.author.send(`Congrats, on to the next the riddle!` + ` | Walk but can't run, x and y direction have WHAT THING in common? |` ).catch (() => {
             message.console.send(`Error`);
         })
   }
 
-  if (message.content.startsWith (`${prefix}hint`)) {
+  if (message.content.startsWith (`${riddlefix}hint`)) {
       if(message.member.roles.find('id', '744775211924062339')) {
             message.channel.send('hi im blank')
       } 
