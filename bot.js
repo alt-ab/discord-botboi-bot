@@ -9,7 +9,7 @@ var GphApiClient = require('giphy-js-sdk-core');
 const GIPHY_TOKEN = process.env.GIPHY_TOKEN;
 giphy = GphApiClient(GIPHY_TOKEN);
 
-//other set up
+//other set up, don't forget to set up in Heroku too
 const PORT = process.env.PORT || 3000;
 const prefix = process.env.prefix;
 const memefix = process.env.memefix;
@@ -120,7 +120,6 @@ client.on('message', message => {
   }
 
   if (message.content.includes (`${riddlefix}hi im dad`)) {
-    //message.channel.type === (`"dm"`) +
         message.author.send(`Congrats, on to the next the riddle!` + `Walk but can't run, x and y direction have WHAT THING in common?`).catch (() => {
             message.console.send(`Error`);
         })
