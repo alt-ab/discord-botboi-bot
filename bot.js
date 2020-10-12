@@ -115,7 +115,7 @@ client.on('message', message => {
   //  msg.channel.type === (`"dm"`) + msg.author.sendMessage(`"Your other message"`);
   //}
 
-  if (message.content.includes (`hi im dad`)) {
+  if (message.content.includes (`${riddlefix}hi im dad`)) {
       message.channel.type === (`"dm"`) + message.author.send(`Congrats, on to the next the riddle!` + `Walk but can't run, x and y direction have WHAT THING in common?`)
   }
 
@@ -125,3 +125,5 @@ client.on('message', message => {
 //bottom
 client.login(process.env.DISCORD_TOKEN);
 // -p $PORT for Procfile
+// and because I'm lazy 
+// Git add .; Git commit -m "commit message"; Git push origin master
