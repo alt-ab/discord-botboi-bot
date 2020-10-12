@@ -114,6 +114,9 @@ client.on('message', message => {
   //if (msg.content === `"Your message!"`) {
   //  msg.channel.type === (`"dm"`) + msg.author.sendMessage(`"Your other message"`);
   //}
+  if (message.content.includes (`dm me`)) {
+      message.author.send(`Yessir!`);
+  }
 
   if (message.content.includes (`${riddlefix}hi im dad`)) {
     //message.channel.type === (`"dm"`) +
