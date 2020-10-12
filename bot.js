@@ -26,10 +26,8 @@ client.on('ready', () => {
 
 client.on('message', message => {
   if (message.member.hasPermission('KICK_MEMBERS')) {
-  	console.log('This member can kick');
-}
-    
-  if (message.member.hasPermission('KICK_MEMBERS')) {
+      console.log('This member can kick');
+      
       if(message.content.startsWith(`${prefix}kick`)) {
           //message.channel.send("Kick")
 
