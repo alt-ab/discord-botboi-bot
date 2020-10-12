@@ -110,6 +110,14 @@ client.on('message', message => {
         message.channel.send('Wrong sorry');
     })
  }
+//Riddle me this!
+  //if (msg.content === `"Your message!"`) {
+  //  msg.channel.type === (`"dm"`) + msg.author.sendMessage(`"Your other message"`);
+  //}
+
+  if (message.content.includes (`hi im dad`)) {
+      message.channel.type === (`"dm"`) + message.author.send(`Congrats, on to the next the riddle!` + `Walk but can't run, x and y direction have WHAT THING in common?`)
+  }
 
 });
 
