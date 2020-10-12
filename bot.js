@@ -75,7 +75,7 @@ client.on('message', message => {
   //, {
   //    files: [C:\Users\ab420\Desktop\python and code\discord-botboi-bot\R2-D2-512.png]
   //}
-  if (message.content.startsWith(`${prefix}ping`)) {
+  if (message.content.startsWith(`${prefix}ping`) || message.content.startsWith(`ping`)) {
       message.channel.send(":ping_pong: pong!")
   }
 
