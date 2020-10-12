@@ -13,6 +13,7 @@ giphy = GphApiClient(GIPHY_TOKEN);
 const PORT = process.env.PORT || 3000;
 const prefix = process.env.prefix;
 const memefix = process.env.memefix;
+const riddlefix = process.env.riddlefix;
 
 client.on(PORT, () => {
     console.log(`App is running on port ${ PORT }`);
@@ -130,4 +131,4 @@ client.on('message', message => {
 client.login(process.env.DISCORD_TOKEN);
 // -p $PORT for Procfile
 // and because I'm lazy 
-// Git add .; Git commit -m "commit message"; Git push origin master
+// Git add .; Git commit -m "commit message"
