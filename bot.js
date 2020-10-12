@@ -75,10 +75,13 @@ client.on('message', message => {
   //, {
   //    files: [C:\Users\ab420\Desktop\python and code\discord-botboi-bot\R2-D2-512.png]
   //}
-  if (message.content.startsWith(`${prefix}ping`) || message.content.startsWith(`ping`)) {
+  if (message.content.startsWith(`${prefix}ping`) || message.content.includes(`ping`)) {
       message.channel.send(":ping_pong: pong!")
   }
 
+  if (message.content.includes("1") || message.content.includes("2")) {
+      console.log(`it's true`)
+  }
   if (message.content.startsWith(`${memefix}`)) {
 
       giphy.search('gifs', {"q":message.content})
