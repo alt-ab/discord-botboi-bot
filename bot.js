@@ -128,7 +128,10 @@ client.on('message', message => {
   if (message.content.startsWith (`${prefix}hint`)) {
       if(message.member.roles.find(x => x.name === "riddler")) {
             message.channel.send('hi im blank')
-  }
+      } 
+      else {
+          message.channel.send('Sorry you need to ask for the @riddler role')
+      }
 };
 
 
