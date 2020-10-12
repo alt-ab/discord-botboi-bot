@@ -125,7 +125,7 @@ client.on('message', message => {
         })
   }
 
-  if (message.content.startsWith (`${riddlefix}hint`)) {
+  if (message.content.includes (`${riddlefix}hint`)) {
       if(message.member.roles.find('id', '744775211924062339')) {
             message.channel.send('hi im blank')
       } 
