@@ -120,7 +120,7 @@ client.on('message', message => {
   }
 
   if (message.content.includes (`${riddlefix}hi im dad`)) {
-        message.author.send(`Congrats, on to the next the riddle!` + ` | Walk but can't run, x and y direction have WHAT THING in common?` | ).catch (() => {
+        message.author.send(`Congrats, on to the next the riddle!` + ` | Walk but can't run, x and y direction have WHAT THING in common? |` ).catch (() => {
             message.console.send(`Error`);
         })
   }
