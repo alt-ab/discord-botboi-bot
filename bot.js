@@ -54,37 +54,55 @@ client.on('message', message => {
           
   }
 
-//commands for general people 
+//commands for general people
 
-  if (message.content.startsWith("botboi")) {
-      var explain = new Discord.RichEmbed();
+  if (message.content.includes("botboi") || message.content.includes("Botboi")) {
+      let explain = new Discord.MessageEmbed();
       
-      explain.addField("My perfix is `~bb`` ask for *help* or *commands*!");
-      message.channel.send("Hello! :robot:" + explain);
+      explain.setTitle("BotBoi :robot:");
+      explain.setColor('00ffcc');
+      explain.setAuthor(client.user.username, client.user.displayAvatarURL());
+      //explain.setTimestamp();
+      explain.setDescription(":robot:" + "**I do many fun things** Always open to suggestions ``bbsuggest``" + " State = in construction... ~~ask my mom~~");
+      explain.addField("Prefix", "My perfix is ``bb``");
+      explain.addField("Help", "try *help* and *commands*!");
+      explain.setThumbnail(client.user.displayAvatarURL());
+      explain.setAuthor(client.user.username, client.user.displayAvatarURL());
+
+      message.channel.send(explain);
   }
+
   if (message.content.includes (`${prefix}dm me`)) {
     message.author.send(`Yessir!`);
   }
 
-  if (message.content.startsWith(`${prefix}help`)) {
-      message.channel.send(":robot:" + "**I do many fun things** Always open to suggestions ``bbsuggestions``" + "State = in construction... ~~ask my mom~~");
+  if (message.content.includes(`${prefix}help`)) {
+      let help = new Discord.MessageEmbed();
+      help.setAuthor(client.user.username, client.user.displayAvatarURL());
+      help.setAuthor = (client.user.username, client.user.displayAvatarURL());
+      help.setTitle("Help!");
+      help.setDescription("DM me! Not the bot me, but the coder @b_ambi#0749");
+      help.setColor('00ffcc');
+
+      message.channel.send(help);
   }
 
   if (message.content.startsWith(`${prefix}commands`)) {
-      const embed = new Discord.RichEmbed();
+      const embed = new Discord.MessageEmbed();
 
-      embed.setAuthor(client.user.username, client.user.defaultAvatarURL);
-      embed.addField("Botboi Commands w/ ``bb`` prefix", "ping, echo, kick, dm, ||link||, *help*");
+      embed.setAuthor(client.user.username, client.user.displayAvatarURL());
+      embed.setTitle("Commands");
+      embed.setColor('00ffcc');
+      embed.addField("Botboi Commands w/ ``bb`` prefix", "**ping, echo, kick, dm, link, *help***");
       embed.addField("Meme Commands", "bbmeme <meme>");
       embed.addField("Streaming/Coding", "More hours to come! DM my mom if you want to display your stream times");
       embed.addField("Riddle Commands w/ ``bb?``", "riddles **coming soon** hint1");
 
-      message.channel.send((embed));
+      message.channel.send(embed);
   }
 
-  if (message.content.toLocaleLowerCase() === `${prefix}suggestions`) {
-      var suggestions = message.content.split(' ').slice(2).join(' ');
-      console.log(suggestions);
+  if (message.content.startsWith(`${prefix}suggest`)) {
+      console.log(message.content.substring(10));
   }
 
   //, {
@@ -95,12 +113,12 @@ client.on('message', message => {
   }
 
   if (message.content.includes(`${prefix}link`)) {
-      var amie = "Kawaii To Do list";
-      var result = amie.link("https://amie.so/w/?ref=LDSEWM6YX");
-      message.channel.send(":D" + result);
+      var amie = "Kawaii To Do list ";
+      var result = "https://amie.so/w/?ref=LDSEWM6YX ";
+      message.channel.send(":D " + amie + result);
   }
 
-  if (message.content.startsWith(`${memefix}`)) {
+  if (message.content.startsWith(`${memefix} `)) {
 
       giphy.search('gifs', {"q":message.content})
       .then((response) => {
@@ -120,7 +138,7 @@ client.on('message', message => {
       message.channel.send(message.content.replace('botboi echo', ':microphone:'))
   }
 
-  if (message.content.startsWith(`${memefix}kpop`) || message.content.includes('botboi jen')) {
+  if (message.content.startsWith(`${memefix}kpop`) || message.content.includes('bb jen')) {
 
     giphy.search('gifs', {"q":"kpop"})
     .then((response) => {
