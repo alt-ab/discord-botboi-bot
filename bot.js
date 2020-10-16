@@ -85,7 +85,7 @@ client.on('message', message => {
 
       message.channel.send((embed));
   }
-  
+
   if (message.content.toLocaleLowerCase() === `${prefix}why`) {
       message.channel.send("***why we exist? Because #yolo that's why***")
   }
@@ -97,7 +97,7 @@ client.on('message', message => {
   }
 
   if (message.content.includes(`${prefix}link`)) {
-      var amie = "Free Web Building Tutorials!";
+      var amie = "Kawaii To Do list";
       var result = amie.link("https://amie.so/w/?ref=LDSEWM6YX");
       message.channel.send(":D" + result);
   }
