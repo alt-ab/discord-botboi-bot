@@ -57,7 +57,9 @@ client.on('message', message => {
 //commands for general people 
 
   if (message.content.startsWith("botboi")) {
-      var explain = "My perfix is `~bb`` ask for *help* or *commands*!";
+      var explain = new Discord.RichEmbed();
+      
+      explain.addField("My perfix is `~bb`` ask for *help* or *commands*!");
       message.channel.send("Hello! :robot:" + explain);
   }
   if (message.content.includes (`${prefix}dm me`)) {
