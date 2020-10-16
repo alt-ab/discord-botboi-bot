@@ -57,15 +57,15 @@ client.on('message', message => {
 //commands for general people 
 
   if (message.content.startsWith("botboi")) {
-      var explain = "My perfix is ```bb``` use ```bbhelp``` or bbcommands```!";
-      message.channel.send("yes?" + explain);
+      var explain = "My perfix is `~bb`` ask for *help* or *commands*!";
+      message.channel.send("Hello! :robot:" + explain);
   }
   if (message.content.includes (`${prefix}dm me`)) {
     message.author.send(`Yessir!`);
   }
 
   if (message.content.startsWith(`${prefix}help`)) {
-      message.channel.send(":robot:" + "**I do many fun things ** ask me 'why' or 'commands'. State = in construction... ~~idk ask my mom~~", suggestions);
+      message.channel.send(":robot:" + "**I do many fun things** Always open to suggestions ``bbsuggestions``" + "State = in construction... ~~ask my mom~~");
   }
 
   if (message.content.startsWith(`${prefix}commands`)) {
@@ -85,9 +85,6 @@ client.on('message', message => {
       console.log(suggestions);
   }
 
-  if (message.content.toLocaleLowerCase() === `${prefix}why`) {
-      message.channel.send("***why we exist? Because #yolo that's why***")
-  }
   //, {
   //    files: [C:\Users\ab420\Desktop\python and code\discord-botboi-bot\R2-D2-512.png]
   //}
