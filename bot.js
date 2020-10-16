@@ -74,10 +74,10 @@ client.on('message', message => {
       const embed = new Discord.RichEmbed();
 
       embed.setAuthor(client.user.username, client.user.defaultAvatarURL);
-      embed.addField("Botboi Commands w/ ```bb``` prefix", "ping, echo, kick, dm, **link**, *help*");
+      embed.addField("Botboi Commands w/ ``bb`` prefix", "ping, echo, kick, dm, ||link||, *help*");
       embed.addField("Meme Commands", "bbmeme <meme>");
       embed.addField("Streaming/Coding", "More hours to come! DM my mom if you want to display your stream times");
-      embed.addField("Riddle Commands w/ ```bb?```", "riddles **coming soon** hint1");
+      embed.addField("Riddle Commands w/ ``bb?``", "riddles **coming soon** hint1");
 
       message.channel.send((embed));
   }
