@@ -56,20 +56,37 @@ client.on('message', message => {
 
 //commands for general people 
 
-  if (message.content.startsWith(`${prefix}h`)) {
-      message.channel.send("yes?")
+  if (message.content.startsWith("botboi")) {
+      var explain = "My perfix is ```bb``` use ```bbhelp``` or bbcommands```!";
+      message.channel.send("yes?" + explain);
   }
-  if (message.content.includes (`dm me`)) {
+  if (message.content.includes (`${prefix}dm me`)) {
     message.author.send(`Yessir!`);
   }
 
+  //! Check this
+  var suggestions = message.channel.send("Any suggestions? Type them here");
+    if (suggestions != null) {
+        console.log(message.content)
+    }
+
   if (message.content.startsWith(`${prefix}help`)) {
-      message.channel.send(":robot:  **I do many fun things but I only one bot** ask me 'why' or 'commands'. State = in construction... ~~idk ask my mom~~")
+      message.channel.send(":robot:" + "**I do many fun things ** ask me 'why' or 'commands'. State = in construction... ~~idk ask my mom~~", suggestions);
   }
+
   if (message.content.startsWith(`${prefix}commands`)) {
-      message.channel.send("I do 'ping', 'echo', 'botboimeme', 'kick' (for admins only of course)." + " Just use my prefix 'botboi' for all of them except the memes, instead say 'botboimeme'  :robot:")
+      const embed = new Discord.RichEmbed();
+
+      embed.setAuthor(client.user.username, client.user.defaultAvatarURL);
+      embed.addField("Botboi Commands w/ ```bb``` prefix", "ping, echo, kick, dm, **link**, *help*");
+      embed.addField("Meme Commands", "bbmeme <meme>");
+      embed.addField("Streaming/Coding", "More hours to come! DM my mom if you want to display your stream times");
+      embed.addField("Riddle Commands w/ ```bb?```", "riddles **coming soon** hint1");
+
+      message.channel.send((embed));
   }
-  if (message.content.startsWith(`${prefix}why`)) {
+  
+  if (message.content.toLocaleLowerCase() === `${prefix}why`) {
       message.channel.send("***why we exist? Because #yolo that's why***")
   }
   //, {
@@ -79,9 +96,12 @@ client.on('message', message => {
       message.channel.send(":ping_pong: pong!")
   }
 
-  if (message.content.includes('1=1') || message.content.includes('2=2')) {
-      console.log(`it's true`)
+  if (message.content.includes(`${prefix}link`)) {
+      var amie = "Free Web Building Tutorials!";
+      var result = amie.link("https://amie.so/w/?ref=LDSEWM6YX");
+      message.channel.send(":D" + result);
   }
+
   if (message.content.startsWith(`${memefix}`)) {
 
       giphy.search('gifs', {"q":message.content})
