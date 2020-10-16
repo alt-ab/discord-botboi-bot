@@ -64,12 +64,6 @@ client.on('message', message => {
     message.author.send(`Yessir!`);
   }
 
-  //! Check this
-  var suggestions = message.channel.send("Any suggestions? Type them here");
-    if (suggestions != null) {
-        console.log(message.content)
-    }
-
   if (message.content.startsWith(`${prefix}help`)) {
       message.channel.send(":robot:" + "**I do many fun things ** ask me 'why' or 'commands'. State = in construction... ~~idk ask my mom~~", suggestions);
   }
@@ -84,6 +78,11 @@ client.on('message', message => {
       embed.addField("Riddle Commands w/ ```bb?```", "riddles **coming soon** hint1");
 
       message.channel.send((embed));
+  }
+
+  if (message.content.toLocaleLowerCase() === `${prefix}suggestions`) {
+      var suggestions = message.content.split(' ').slice(2).join(' ');
+      console.log(suggestions);
   }
 
   if (message.content.toLocaleLowerCase() === `${prefix}why`) {
