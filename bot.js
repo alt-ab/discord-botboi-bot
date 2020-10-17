@@ -185,4 +185,4 @@ client.login(process.env.DISCORD_TOKEN);
         // allowed access to command
    // } else {
        // not allowed access
-   // }
+   // // }
