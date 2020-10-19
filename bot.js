@@ -93,7 +93,7 @@ client.on('message', message => {
       embed.setAuthor(client.user.username, client.user.displayAvatarURL());
       embed.setTitle("Commands");
       embed.setColor('00ffcc');
-      embed.addField("Botboi Commands w/ ``bb`` prefix", "**|help & commands| ping, echo, kick, dm me, link*");
+      embed.addField("Botboi Commands w/ ``bb`` prefix", "**|help & commands| ping, echo, kick, dm me, link**");
       embed.addField("Meme Commands w/ ``bbmeme`` prefix", "bbmeme <meme>");
       embed.addField("Streaming/Coding Schedules", "More hours to come! use ``bbhelp`` & DM if you want to display your stream times");
       embed.addField("Riddle Commands w/ ``bb?`` prefix", "riddles, & **coming soon** hint1");
