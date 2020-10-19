@@ -65,7 +65,7 @@ client.on('message', message => {
       //explain.setTimestamp();
       explain.setDescription(":robot:" + "**I do many fun things** Always open to suggestions ``bbsuggest``" + " State = in construction... ~~ask my mom~~");
       explain.addField("Prefix", "My perfix is ``bb``");
-      explain.addField("Help", "try *help* and *commands*!");
+      explain.addField("Help", "try ``bbhelp`` and ``bbcommands``!");
       explain.setThumbnail(client.user.displayAvatarURL());
       explain.setAuthor(client.user.username, client.user.displayAvatarURL());
 
