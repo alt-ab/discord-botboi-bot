@@ -93,10 +93,10 @@ client.on('message', message => {
       embed.setAuthor(client.user.username, client.user.displayAvatarURL());
       embed.setTitle("Commands");
       embed.setColor('00ffcc');
-      embed.addField("Botboi Commands w/ ``bb <command>``", "arguments: **|help & commands & invite|, ping, echo, kick, dm me, link**");
-      embed.addField("Meme Commands w/ ``bbmeme <command>``", "bbmeme <meme>");
+      embed.addField("Botboi Commands w/ ``bb <command>``", "commands: **|help & commands & invite|, ping, echo, kick, dm me, link**");
+      embed.addField("Meme Commands w/ ``bbmeme <command>``", "commands: bbmeme <meme>");
       embed.addField("Streaming/Coding Schedules", "More hours to come! use ``bbhelp`` & DM if you want to display your stream times");
-      embed.addField("Riddle Commands w/ ``bb? <command>``", "riddles, & **coming soon** hint1");
+      embed.addField("Riddle Commands w/ ``bb? <command>``", "commands: riddles, & **coming soon** hint1");
 
       message.channel.send(embed);
   }
