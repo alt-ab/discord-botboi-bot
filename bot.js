@@ -93,7 +93,7 @@ client.on('message', message => {
       embed.setAuthor(client.user.username, client.user.displayAvatarURL());
       embed.setTitle("Commands");
       embed.setColor('00ffcc');
-      embed.addField("Botboi Commands w/ ``bb`` prefix", "**|help & commands| ping, echo, kick, dm me, link**");
+      embed.addField("Botboi Commands w/ ``bb`` prefix", "**|help & commands & invite| ping, echo, kick, dm me, link**");
       embed.addField("Meme Commands w/ ``bbmeme`` prefix", "bbmeme <meme>");
       embed.addField("Streaming/Coding Schedules", "More hours to come! use ``bbhelp`` & DM if you want to display your stream times");
       embed.addField("Riddle Commands w/ ``bb?`` prefix", "riddles, & **coming soon** hint1");
@@ -103,6 +103,10 @@ client.on('message', message => {
 
   if (message.content.startsWith(`${prefix}suggest`)) {
       console.log(message.content.substring(10));
+  }
+
+  if (message.content.toLocaleLowerCase(`${prefix}invite`)) {
+      message.channel.send("https://discord.com/api/oauth2/authorize?client_id=702301294802501782&permissions=67442694&scope=bot")
   }
 
   //, {
@@ -119,19 +123,20 @@ client.on('message', message => {
   }
 
   if (message.content.startsWith(`${memefix} `)) {
+      //If message content DOES NOT equal nothing then 
 
-      giphy.search('gifs', {"q":message.content})
-      .then((response) => {
-          var totalResponses = response.data.length;
-          var responseIndex = Math.floor((Math.random() * 10) + 1) % totalResponses;
-          var responseFinal = response.data[responseIndex];
+        giphy.search('gifs', {"q":message.content})
+        .then((response) => {
+            var totalResponses = response.data.length;
+            var responseIndex = Math.floor((Math.random() * 10) + 1) % totalResponses;
+            var responseFinal = response.data[responseIndex];
 
-          message.channel.send({
-              files: [responseFinal.images.fixed_height.url]
-          })
-      }).catch(() => {
-          message.channel.send('Error sorry');
-      })
+            message.channel.send({
+                files: [responseFinal.images.fixed_height.url]
+            })
+        }).catch(() => {
+            message.channel.send('Error sorry');
+        })
   }
 
   if (message.content.includes(`${prefix}echo`)) {
