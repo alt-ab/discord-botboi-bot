@@ -162,9 +162,6 @@ client.on('message', message => {
   //if (msg.content === `"Your message!"`) {
   //  msg.channel.type === (`"dm"`) + msg.author.sendMessage(`"Your other message"`);
   //}
-  if (message.content.startsWith(`${riddlefix}`)) {
-      message.channel.send("missing an argument. Check out ``bbcommands``")
-  }
  
   if (message.content.includes (`${riddlefix}hi im dad`) || message.content.includes ("? ur mom")) {
         message.author.send(`Congrats, on to the next the riddle!` + ` | Walk but can't run, x and y direction have WHAT THING in common? |` ).catch (() => {
