@@ -106,7 +106,7 @@ client.on('message', message => {
   }
 
   if (message.content.startsWith(`${prefix}invite`)) {
-      message.channel.send("https://discord.com/api/oauth2/authorize?client_id=702301294802501782&permissions=67442694&scope=bot")
+      message.channel.send("https://discord.com/api/oauth2/authorize?client_id=702301294802501782&permissions=2081422455&scope=bot")
   }
 
   //, {
