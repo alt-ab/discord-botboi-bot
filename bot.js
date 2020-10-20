@@ -93,10 +93,10 @@ client.on('message', message => {
       embed.setAuthor(client.user.username, client.user.displayAvatarURL());
       embed.setTitle("Commands");
       embed.setColor('00ffcc');
-      embed.addField("Botboi Commands w/ ``bb`` prefix", "**|help & commands & invite|, ping, echo, kick, dm me, link**");
-      embed.addField("Meme Commands w/ ``bbmeme`` prefix", "bbmeme <meme>");
+      embed.addField("Botboi Commands w/ ``bb <command>``", "arguments: **|help & commands & invite|, ping, echo, kick, dm me, link**");
+      embed.addField("Meme Commands w/ ``bbmeme <command>``", "bbmeme <meme>");
       embed.addField("Streaming/Coding Schedules", "More hours to come! use ``bbhelp`` & DM if you want to display your stream times");
-      embed.addField("Riddle Commands w/ ``bb?`` prefix", "riddles, & **coming soon** hint1");
+      embed.addField("Riddle Commands w/ ``bb? <command>``", "riddles, & **coming soon** hint1");
 
       message.channel.send(embed);
   }
@@ -162,6 +162,9 @@ client.on('message', message => {
   //if (msg.content === `"Your message!"`) {
   //  msg.channel.type === (`"dm"`) + msg.author.sendMessage(`"Your other message"`);
   //}
+  if (message.content.startsWith(`${riddlefix}`)) {
+      message.channel.send("missing an argument. Check out ``bbcommands``")
+  }
  
   if (message.content.includes (`${riddlefix}hi im dad`) || message.content.includes ("? ur mom")) {
         message.author.send(`Congrats, on to the next the riddle!` + ` | Walk but can't run, x and y direction have WHAT THING in common? |` ).catch (() => {
