@@ -19,17 +19,42 @@ client.on(PORT, () => {
     console.log(`App is running on port ${ PORT }`);
 });
 
+//anti-spam
+/*const AntiSpam = require('discord-anti-spam');
+const antiSpam = new AntiSpam({
+    warnThreshold: 100000, // Amount of messages sent in a row that will cause a warning.
+    kickThreshold: 100000, // Amount of messages sent in a row that will cause a ban.
+    banThreshold: 100000, // Amount of messages sent in a row that will cause a ban.
+    maxInterval: 5000, // Amount of time (in milliseconds) in which messages are considered spam.
+    warnMessage: '{@user}, You have been warned on spam', // Message that will be sent in chat upon warning a user.
+    //kickMessage: '**{user_tag}** has been kicked for spamming.', // Message that will be sent in chat upon kicking a user.
+    //banMessage: '**{user_tag}** has been banned for spamming.', // Message that will be sent in chat upon banning a user.
+    maxDuplicatesWarning: 2, // Amount of duplicate messages that trigger a warning.
+    maxDuplicatesKick: 100000, // Amount of duplicate messages that trigger a warning.
+    maxDuplicatesBan: 100000, // Amount of duplicate messages that trigger a warning.
+    exemptPermissions: [ 'ADMINISTRATOR', 'KICK_MEMBERS'],// Bypass users with any of these permissions.
+    ignoreBots: true, // Ignore bot messages.
+    verbose: true, // Extended Logs from module.
+    ignoredUsers: [417498522774929418], //* Array of User IDs that get ignored.
+    // And many more options... See the documentation.
+});
+*/
+
 //output & code
 client.on('ready', () => {
   console.log(`Blast off! Logged in as ${client.user.tag}!`);
 });
 
 client.on('message', message => {
+ 
+client.on('ready', () => console.log(`Logged in as ${client.user.tag}.`));
+
+//anti spam
+//client.on('message', (message) => antiSpam.message(message)); 
+
   if (message.member.hasPermission('KICK_MEMBERS')) {
-     // console.log('This member can kick');
       
       if(message.content.startsWith(`${prefix}kick`)) {
-          //message.channel.send("Kick")
 
           let member = message.mentions.members.first();
           member.kick().then((member) => {
@@ -63,7 +88,8 @@ client.on('message', message => {
       explain.setColor('00ffcc');
       explain.setAuthor(client.user.username, client.user.displayAvatarURL());
       //explain.setTimestamp();
-      explain.setDescription(":robot:" + "**I do many fun things** Always open to suggestions ``bbsuggest``" + " State = in construction... ~~ask my mom~~");
+      explain.setDescription(":robot:" + "**I do many fun things** Always open to suggestions ``bbsuggest``" + 
+                             " State = in construction... ~~ask my mom~~");
       explain.addField("Prefix", "My perfix is ``bb``");
       explain.addField("Help", "try ``bbhelp`` and ``bbcommands``!");
       explain.setThumbnail(client.user.displayAvatarURL());
@@ -93,8 +119,8 @@ client.on('message', message => {
       embed.setAuthor(client.user.username, client.user.displayAvatarURL());
       embed.setTitle("Commands");
       embed.setColor('00ffcc');
-      embed.addField("Botboi Commands w/ ``bb <command>``", "commands: **|help & commands & invite|, ping, echo, kick, dm me, link**");
-      embed.addField("Meme Commands w/ ``bbmeme <command>``", "commands: bbmeme <meme>");
+      embed.addField("Botboi Commands w/ ``bb <command>``", "commands: **help, commands, invite**, ping, echo, kick, dm me, link");
+      embed.addField("Meme Commands w/ ``bbmeme <command>``", "commands: meme");
       embed.addField("Streaming/Coding Schedules", "More hours to come! use ``bbhelp`` & DM if you want to display your stream times");
       embed.addField("Riddle Commands w/ ``bb? <command>``", "commands: riddles, & **coming soon** hint1");
 
@@ -106,7 +132,7 @@ client.on('message', message => {
   }
 
   if (message.content.startsWith(`${prefix}invite`)) {
-      message.channel.send("https://discord.com/api/oauth2/authorize?client_id=702301294802501782&permissions=2081422455&scope=bot")
+      message.channel.send("https://discord.com/api/oauth2/authorize?client_id=702301294802501782&permissions=2147483639&scope=bot")
   }
 
   //, {
@@ -123,6 +149,7 @@ client.on('message', message => {
   }
 
   if (message.content.startsWith(`${memefix} `)) {
+      if (message.content.length)
       //If message content DOES NOT equal nothing then 
 
         giphy.search('gifs', {"q":message.content})
