@@ -53,7 +53,7 @@ client.once('disconnect', () => {
 
 client.on('message', message => {
 
-    if (message.content.includes("botboi") || message.content.includes("Botboi")) {
+    if (message.content.startsWith("botboi") || message.content.startsWith("Botboi")) {
         let explain = new Discord.MessageEmbed();
         
         explain.setTitle("BotBoi :robot:");
