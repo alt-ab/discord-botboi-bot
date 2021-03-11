@@ -5,7 +5,7 @@ module.exports = {
     execute(message, args) {
         const data = [];
 
-        let member = message.mentions.members.first();
+        let member = args[0];
 
         const banner = "Happy birthday!";
 
@@ -17,7 +17,7 @@ module.exports = {
         if (!args.length) {
             message.channel.send(data.join('\n') + `${message.author}`);
         } else {
-            message.channel.send(data.join('\n') + `\n ` + member.displayName);
+            message.channel.send(data.join('\n') + `\n ` + member);
         }
 
         message.channel.send('`Congrats! you have unlocked a secret!` I can also sing Happy Bithday with `bbsing`');

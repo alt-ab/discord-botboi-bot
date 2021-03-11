@@ -124,7 +124,7 @@ client.on('message', message => {
   if (command.permissions) {
       const authorPerms = message.channel.permissionsFor(message.client.user);
       if (!authorPerms || !authorPerms.has(command.permissions)) {
-          return message.channel.reply("You don't have the permissions boy");
+          return message.reply("You don't have the permissions boy");
       }
   }
 

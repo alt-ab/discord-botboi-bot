@@ -3,6 +3,8 @@ module.exports = {
     args: true,
     usage: '<number>',
     description: 'Deletes past your history :eyes:',
+    guildOnly: true,
+    permissions: "MANAGE_NICKNAMES",
     execute(message, args) {
       const amount = parseInt(args[0]) + 1;
 

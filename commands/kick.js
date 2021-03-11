@@ -11,7 +11,7 @@ module.exports = {
     cooldown: 5,
     description: 'Make a user extinct',
     execute(message, args) {
-        let member = message.mentions.members.first();
+        let member = args[0];
         
         if (!args.size) {
             return message.reply("You need to @ somebody!")
@@ -25,7 +25,7 @@ module.exports = {
                     var responseIndex = Math.floor((Math.random() * 10) + 1) % totalResponses;
                     var responseFinal = response.data[responseIndex];
                     //* code^^ for randomizing & there is a reason for putting member.displayName outside of backticks
-                    message.channel.send(":wave: " + member.displayName + " is a dropout!!", {
+                    message.channel.send(":wave: " + member + " is a dropout!!", {
                         files: [responseFinal.images.fixed_height.url]
                     })
                 })

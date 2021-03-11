@@ -19,7 +19,7 @@ module.exports = {
 
         // message.channel.send(callOutList);
 
-        let member = message.mentions.members.first();
+        let member = args[0];
 
         giphy.search('gifs',{"q": "hit"})
              .then((response) => {
@@ -27,7 +27,7 @@ module.exports = {
                  var responseIndex = Math.floor((Math.random() * 10) + 1) % totalResponses;
                  var responseFinal = response.data[responseIndex];
                  //* code^^ for randomizing
-                 message.channel.send(":wave: " + member.displayName + `You have been smacked by ${message.author}`, {
+                 message.channel.send(":wave: " + member + ` You have been smacked by ${message.author}`, {
                      files: [responseFinal.images.fixed_height.url]
                  })
              })
