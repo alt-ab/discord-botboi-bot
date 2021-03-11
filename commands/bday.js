@@ -1,30 +1,25 @@
 module.exports = {
     name: "bday",
     description: 'for that special someone',
+    usage: "Tell the world it's somebody's birthday!",
     execute(message, args) {
         const data = [];
 
-        const banner = "Happy-birthday-jenny!";
+        let member = message.mentions.members.first();
 
-        data.push("**SPAM WARNING**");
-            //ooo look, you are using the join()
-        
-        for (const l in banner) {
-            data.push(l);
-        }
-
-        for (let l in data) {
-            // message.channel.send(l)
-        }
+        const banner = "Happy birthday!";
 
         for (let i = 0; i < banner.length; i++) {
-            message.channel.send(banner.charAt(i));
+
+            data.push(banner.charAt(i));
         }
 
-        // data.push(banner.charAt()).join('\n'));
-        // data.push(commands.map(command => command.name).join('\n'));
+        if (!args.length) {
+            message.channel.send(data.join('\n') + `${message.author}`);
+        } else {
+            message.channel.send(data.join('\n') + `\n ` + member.displayName);
+        }
 
-        // //ooo "split" things? which is fucntion to split the message, just in case it reaches over 2000 chara limit
-        // return message.channel.send(data, {split: true});
+        message.channel.send('`Congrats! you have unlocked a secret!` I can also sing Happy Bithday with `bbsing`');
     },
 };
