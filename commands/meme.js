@@ -14,8 +14,6 @@ module.exports = {
             var totalResponses = response.data.length;
             var responseIndex = Math.floor((Math.random() * 10) + 1) % totalResponses;
             var responseFinal = response.data[responseIndex];
-
-            console.log("A meme was asked");
             
             message.channel.send({
                 files: [responseFinal.images.fixed_height.url]

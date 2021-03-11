@@ -2,3 +2,4 @@
 .env
 Procfile
 node_modules
+notes.txt

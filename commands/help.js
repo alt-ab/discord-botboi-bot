@@ -16,16 +16,8 @@ module.exports = {
             data.push(commands.map(command => command.name).join('\n'));
             data.push(`\nType \`${prefix}help [command name]\` to get more info on that command :thumbsup:!`);
 
-            //ooo "split" things? which is fucntion to split the message, just in case it reaches over 2000 chara limit
+            //ooo "split" things? which is function to split the message, just in case it reaches over 2000 chara limit
             return message.channel.send(data, {split: true});
-            // .then(() => {
-            //     if (message.channel.type === "dm") return;
-            //     message.reply('I just sent you a DM with all my info :S');
-            // })
-            // .catch(error => {
-            //     console.error(`Could not send DM to ${message.author.tag}.\n`, error);
-            //     message.reply("I can't DM you... is your DMs dsiabled?");
-            // })
         }
 
         //if they DID input a specific command...
@@ -44,7 +36,7 @@ module.exports = {
 
         data.push(`**Cooldown: **${command.cooldown || 3} second(s)`);
 
-        message.channel.send(data, {split: true });
+        message.channel.send(data, {split: true});
 
     },
 };
