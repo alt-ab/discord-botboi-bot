@@ -17,7 +17,7 @@ module.exports = {
                  var responseIndex = Math.floor((Math.random() * 10) + 1) % totalResponses;
                  var responseFinal = response.data[responseIndex];
                  //* code^^ for randomizing
-                 message.channel.send(":wave: " + member + ` You have been smacked by ${message.author}`, {
+                 message.channel.send("❤ " + member + ` You have been hugged by ${message.author}`, {
                      files: [responseFinal.images.fixed_height.url]
                  })
              })
