@@ -4,6 +4,8 @@ require('dotenv').config();
 const fs = require("fs");
 const Discord = require('discord.js');
 
+const quiz = require('./commands/quiz.json');
+
 const cooldowns = new Discord.Collection();
 
 const client = new Discord.Client();
