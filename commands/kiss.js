@@ -3,7 +3,7 @@ const GIPHY_TOKEN = process.env.GIPHY_TOKEN;
 giphy = GphApiClient(GIPHY_TOKEN);
 
 module.exports = {
-    name: "smack",
+    name: "kiss",
     description: 'Kiss your enemies',
     args: true,
     usage: '<user>',
