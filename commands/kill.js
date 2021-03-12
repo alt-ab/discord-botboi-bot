@@ -11,7 +11,7 @@ module.exports = {
 
         let member = args[0];
 
-        giphy.search('gifs',{"q": "cartoon kill"})
+        giphy.search('gifs',{"q": "murder cartoon"})
              .then((response) => {
                  var totalResponses = response.data.length;
                  var responseIndex = Math.floor((Math.random() * 10) + 1) % totalResponses;
