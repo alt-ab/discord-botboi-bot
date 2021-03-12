@@ -38,7 +38,7 @@ giphy = GphApiClient(GIPHY_TOKEN);
 //Blast off!
 client.once('ready', () => {
   console.log(`Blast off!`);
-client.user.setActivity("for \"botboi\"", { type: "WATCHING" });
+  client.user.setActivity("for \"botboi\"", { type: "WATCHING" });
 });
 //* Logged in as ${client.user.tag}
 
