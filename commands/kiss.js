@@ -4,14 +4,14 @@ giphy = GphApiClient(GIPHY_TOKEN);
 
 module.exports = {
     name: "smack",
-    description: 'Smack your enemies',
+    description: 'Kiss your enemies',
     args: true,
     usage: '<user>',
     execute(message, args) {
-        
+
         let member = args[0];
 
-        giphy.search('gifs',{"q": "hit"})
+        giphy.search('gifs',{"q": "anime kiss"})
              .then((response) => {
                  var totalResponses = response.data.length;
                  var responseIndex = Math.floor((Math.random() * 10) + 1) % totalResponses;
