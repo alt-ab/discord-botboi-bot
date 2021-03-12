@@ -2,7 +2,7 @@ module.exports = {
     name: "quote",
     description: 'To quote memorable moments',
     args: true,
-    usage: "<@person> quote",
+    usage: "<@person> quote. Permissions required",
     guildOnly: true,
     permissions: "MANAGE_NICKNAMES",
     execute(message, args) {

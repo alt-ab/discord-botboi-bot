@@ -49,8 +49,6 @@ client.once('disconnect', () => {
     console.log(`Disconnected!`);
 });
 
-//how to break string/text line -> \n
-
 client.on('message', message => {
 
     if (message.content.startsWith("botboi") || message.content.startsWith("Botboi")) {
@@ -59,11 +57,9 @@ client.on('message', message => {
         explain.setTitle("BotBoi :robot:");
         explain.setColor('00ffcc');
         explain.setAuthor(client.user.username, client.user.displayAvatarURL());
-        //explain.setTimestamp();
-        explain.setDescription(":robot:" + "**I do many fun things** Always open to suggestions ``bbsuggest``" + 
-                               " State = in construction... ~~ask my mom~~");
-        explain.addField("Prefix", "My perfix is ``bb``");
-        explain.addField("Help", "try ``bbhelp`` or ``bbcommands``!");
+        explain.setDescription(":robot:" + "**I do many fun and random things** I was created by @alxndria#0749. If you have any questions, ask her!");
+        explain.addField("Prefix", "My perfix is ``$``");
+        explain.addField("Commands", "For commands, ``$help`` or ``$commands``!");
         explain.setThumbnail(client.user.displayAvatarURL());
         explain.setAuthor(client.user.username, client.user.displayAvatarURL());
   
@@ -76,8 +72,6 @@ client.on('message', message => {
       const banner = "Happy-birthday!";
 
       message.channel.send("**SPAM WARNING**");
-          //ooo look, you are using the join()
-      
 
       for (let i = 0; i < banner.length; i++) {
           message.channel.send(banner.charAt(i));
@@ -87,7 +81,6 @@ client.on('message', message => {
 ///
 //tutorial discordjs.guide/creating-your-bot/... 
 
-  //check for not prefix or bots
   if (!message.content.startsWith(prefix)) return;
   if (message.author.bot) return;
 
@@ -115,7 +108,6 @@ client.on('message', message => {
       return message.channel.send(reply);
   }
   
-  //again more dynamic with this "branch?" with server-only commands
   if (command.guildOnly && !message.channel.type === "dm") {
      return message.reply("I can\'t execute that command inside your DMs!");
   }
@@ -128,7 +120,7 @@ client.on('message', message => {
       }
   }
 
-  //DEALING WITH TIME w/ discord Collections and a lil math
+  //DEALING WITH TIME w/ discord Collections 
   if (!cooldowns.has(command.name)) {
 	 cooldowns.set(command.name, new Discord.Collection());
   }
@@ -148,7 +140,6 @@ client.on('message', message => {
   setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
 
-  //you made your bot dynamically load and execute your commands here
   try {
       //was 'client.commands.get(command).execute(message, args);' but was able to refactor
       command.execute(message, args);

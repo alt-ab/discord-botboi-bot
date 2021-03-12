@@ -4,7 +4,7 @@ module.exports = {
     permissions: "MANAGE_NICKNAMES",
     args: true,
     guildOnly: true,
-    usage: "<@user> <role name>",
+    usage: "<@user> <role name>. Currently developing!",
     execute(message, args) {
         const user = message.mentions.users.first()
         
