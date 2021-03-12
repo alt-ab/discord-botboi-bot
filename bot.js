@@ -79,7 +79,7 @@ client.on('message', message => {
     }
 
 ///
-//tutorial discordjs.guide/creating-your-bot/... 
+//tutorial discordjs.guide/creating-your-bot/
 
   if (!message.content.startsWith(prefix)) return;
   if (message.author.bot) return;
