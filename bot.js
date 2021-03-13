@@ -11,8 +11,6 @@ const cooldowns = new Discord.Collection();
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
-
-//set a new item in the Collection and it will be exported to here
 const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
 
 for (const file of commandFiles) {
@@ -21,7 +19,6 @@ for (const file of commandFiles) {
 }
 
 //Configuration 
-//other set up, don't forget to set up in Heroku too
 const PORT = process.env.PORT || 3000;
 const prefix = process.env.prefix;
 const memefix = process.env.memefix;
@@ -36,8 +33,6 @@ var GphApiClient = require('giphy-js-sdk-core');
 const GIPHY_TOKEN = process.env.GIPHY_TOKEN;
 giphy = GphApiClient(GIPHY_TOKEN);
 
-
-//Blast off!
 client.once('ready', () => {
   console.log(`Blast off!`);
   client.user.setActivity("for \"botboi\"", { type: "WATCHING" });
@@ -81,15 +76,11 @@ client.on('message', message => {
       }
     }
 
-///
-//tutorial discordjs.guide/creating-your-bot/
 
   if (!message.content.startsWith(prefix)) return;
   if (message.author.bot) return;
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
-  //args.shift will remove from array which is 'args' while also returning the first element (the command) 
-  //and then you add the toLowerCase function on top of that
   const commandName = args.shift().toLowerCase();
 
   const command = client.commands.get(commandName)
@@ -97,13 +88,10 @@ client.on('message', message => {
 
   if (!command) return;
 
-  //catching empty arguments for only the required commands with &&
-  //notice the 'return'
+  
   if (command.args && !args.length) {
       let reply = `You didn't provide any arguments, ${message.author}`;
 
-      //make it even more dynamic by telling the user you need an argument for that specific command w/ "if usage in command file is a thing/is true..."
-     //notice the back slashes
       if (command.usage) {
         reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
         }
@@ -115,7 +103,6 @@ client.on('message', message => {
      return message.reply("I can\'t execute that command inside your DMs!");
   }
 
-  //how to check for permissions
   if (command.permissions) {
       const authorPerms = message.channel.permissionsFor(message.client.user);
       if (!authorPerms || !authorPerms.has(command.permissions)) {
@@ -123,17 +110,15 @@ client.on('message', message => {
       }
   }
 
-  //DEALING WITH TIME w/ discord Collections 
   if (!cooldowns.has(command.name)) {
 	 cooldowns.set(command.name, new Discord.Collection());
   }
-  //checking if there was already a cooldown set, and if not add one
   const now = Date.now();
   const timestamps = cooldowns.get(command.name);
   const cooldownAmount = (command.cooldown || 3) * 1000;
   if (timestamps.has(message.author.id)) {
 	const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
-    //remember the Collections pair the User's ID and their cooldown time
+    
 	if (now < expirationTime) {
 		const timeLeft = (expirationTime - now) / 1000;
 		return message.reply(`please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`);
@@ -144,7 +129,6 @@ client.on('message', message => {
 
 
   try {
-      //was 'client.commands.get(command).execute(message, args);' but was able to refactor
       command.execute(message, args);
   } catch (error) {
 	console.error(error);
