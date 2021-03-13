@@ -21,8 +21,6 @@ for (const file of commandFiles) {
 //Configuration 
 const PORT = process.env.PORT || 3000;
 const prefix = process.env.prefix;
-const memefix = process.env.memefix;
-const riddlefix = process.env.riddlefix;
 
 client.on(PORT, () => {
     console.log(`App is running on port ${ PORT }`);
