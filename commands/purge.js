@@ -1,5 +1,5 @@
 module.exports = {
-    name: "delete",
+    name: "purge",
     args: true,
     usage: '<number>',
     description: 'Deletes past your history :eyes:',
