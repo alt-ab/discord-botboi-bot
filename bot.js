@@ -3,6 +3,7 @@ require('dotenv').config();
 //Discord
 const fs = require("fs");
 const Discord = require('discord.js');
+const ms = require("ms");
 
 const quiz = require('./commands/quiz.json');
 
@@ -50,14 +51,14 @@ client.on('message', message => {
     if (message.content.startsWith("botboi") || message.content.startsWith("Botboi")) {
         let explain = new Discord.MessageEmbed();
         
-        explain.setTitle("BotBoi :robot:");
-        explain.setColor('00ffcc');
-        explain.setAuthor(client.user.username, client.user.displayAvatarURL());
-        explain.setDescription(":robot:" + "**I do many fun and random things** I was created by @alxndria#0749. If you have any questions, ask her!");
-        explain.addField("Prefix", "My perfix is ``$``");
-        explain.addField("Commands", "For commands, ``$help`` or ``$commands``!");
-        explain.setThumbnail(client.user.displayAvatarURL());
-        explain.setAuthor(client.user.username, client.user.displayAvatarURL());
+        explain.setTitle("BotBoi :robot:")
+        .setColor('00ffcc')
+        .setAuthor(client.user.username, client.user.displayAvatarURL())
+        .setDescription(":robot:" + "**I do many fun and random things** I was created by @alxndria#0749. If you have any questions, ask her!")
+        .addField("Prefix", `My perfix is ${prefix}!`)
+        .addField("Commands", `For commands, ${prefix}help or ${prefix}commands!`)
+        .setThumbnail(client.user.displayAvatarURL())
+        .setAuthor(client.user.username, client.user.displayAvatarURL());
   
         message.channel.send(explain);
     }
@@ -102,11 +103,11 @@ client.on('message', message => {
   }
 
   if (command.permissions) {
-      const authorPerms = message.channel.permissionsFor(message.client.user);
-      if (!authorPerms || !authorPerms.has(command.permissions)) {
-          return message.reply("You don't have the permissions boy");
-      }
-  }
+		const authorPerms = message.channel.permissionsFor(message.author);
+		if (!authorPerms || !authorPerms.has(command.permissions)) {
+			return message.reply('You do not have permissions boy');
+		}
+	}
 
   if (!cooldowns.has(command.name)) {
 	 cooldowns.set(command.name, new Discord.Collection());

@@ -1,6 +1,7 @@
 var GphApiClient = require('giphy-js-sdk-core');
 const GIPHY_TOKEN = process.env.GIPHY_TOKEN;
 giphy = GphApiClient(GIPHY_TOKEN);
+const Discord = require('discord.js');
 
 module.exports = {
     name: "kick",
@@ -11,13 +12,15 @@ module.exports = {
     cooldown: 5,
     description: 'Make a user extinct',
     execute(message, args) {
-        let member = message.mentions.member.first();
+        const member = message.mentions.members.first();
         
         if (!args.size) {
             return message.reply("You need to @ somebody!")
         }
+        console.log(args[0])
 
-        member.kick().then((member) => {
+        member.kick()
+        .then((member) => {
 
             giphy.search('gifs',{"q": "fail"})
                 .then((response) => {
