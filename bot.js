@@ -4,7 +4,6 @@ require('dotenv').config();
 const fs = require("fs");
 const Discord = require('discord.js');
 const ms = require("ms");
-
 const quiz = require('./commands/quiz.json');
 
 const cooldowns = new Discord.Collection();
@@ -48,32 +47,37 @@ client.once('disconnect', () => {
 
 client.on('message', message => {
 
-    if (message.content.startsWith("botboi") || message.content.startsWith("Botboi")) {
-        let explain = new Discord.MessageEmbed();
-        
-        explain.setTitle("BotBoi :robot:")
-        .setColor('00ffcc')
-        .setAuthor(client.user.username, client.user.displayAvatarURL())
-        .setDescription(":robot:" + "**I do many fun and random things** I was created by @alxndria#0749. If you have any questions, ask her!")
-        .addField("Prefix", `My perfix is ${prefix}!`)
-        .addField("Commands", `For commands, ${prefix}help or ${prefix}commands!`)
-        .setThumbnail(client.user.displayAvatarURL())
-        .setAuthor(client.user.username, client.user.displayAvatarURL());
-  
-        message.channel.send(explain);
+  if (message.content.startsWith("botboi") || message.content.startsWith("Botboi")) {
+      let explain = new Discord.MessageEmbed();
+      
+      explain.setTitle("BotBoi :robot:")
+      .setColor('00ffcc')
+      .setAuthor(client.user.username, client.user.displayAvatarURL())
+      .setDescription(":robot:" + "**I do many fun and random things** I was created by @alxndria#0749. If you have any questions, ask her!")
+      .addField("Prefix", `My perfix is ${prefix}!`)
+      .addField("Commands", `For commands, ${prefix}help or ${prefix}commands!`)
+      .setThumbnail(client.user.displayAvatarURL())
+      .setAuthor(client.user.username, client.user.displayAvatarURL());
+
+      message.channel.send(explain);
+  }
+
+  //for secret sing command
+  if (message.content.startsWith('bbsing')) {
+
+    const banner = "Happy-birthday!";
+
+    message.channel.send("**SPAM WARNING**");
+
+    for (let i = 0; i < banner.length; i++) {
+        message.channel.send(banner.charAt(i));
     }
+  }
 
-    //for secret sing command
-    if (message.content.startsWith('bbsing')) {
-
-      const banner = "Happy-birthday!";
-
-      message.channel.send("**SPAM WARNING**");
-
-      for (let i = 0; i < banner.length; i++) {
-          message.channel.send(banner.charAt(i));
-      }
-    }
+    //Dad jokes!?
+  if (message.content.toLowerCase().startsWith('i am')) {
+    message.channel.send('muuu')
+  }
 
 
   if (!message.content.startsWith(prefix)) return;
