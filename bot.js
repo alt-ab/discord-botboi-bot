@@ -75,8 +75,13 @@ client.on('message', message => {
   }
 
     //Dad jokes!?
-  if (message.content.toLowerCase().startsWith('i am')) {
-    message.channel.send('muuu')
+  if (message.content.toLowerCase().startsWith('i am') || message.content.toLowerCase().startsWith('i\'m')) {
+    let joke = message.content.slice(4)
+    message.channel.send('Hi `' + joke + '`, I\'m Botboi 🤪')
+  }
+  if (message.content.toLowerCase().startsWith('im')) {
+    let joke = message.content.slice(3)
+    message.channel.send('Hi `' + joke + '`, I\'m Botboi 🤪')
   }
 
 
