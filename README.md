@@ -1,11 +1,8 @@
-# :robot: Discord Bot Boi
+# :robot: Discord Bot Boi [![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/alt-ab/discord-botboi-bot)
 
 My very first [JavaScript](https://www.javascript.com/) program hosted by [Heroku](https://www.heroku.com/) and written with the [Discordjs](https://discord.js.org/#/) module.
 
 ~~What's new?~~
-
-Try it out here! 
-[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/alt-ab/discord-botboi-bot)
 
 <details closed>
 <summary> <b>Truly...</b> </summary>
