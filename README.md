@@ -4,6 +4,9 @@ My very first [JavaScript](https://www.javascript.com/) program hosted by [Herok
 
 ~~What's new?~~
 
+Try it out here! 
+[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/alt-ab/discord-botboi-bot)
+
 <details closed>
 <summary> <b>Truly...</b> </summary>
 It was written for a gag gift for my friend and now I've let it get out of hand... 
